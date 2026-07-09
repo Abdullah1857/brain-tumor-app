@@ -1,0 +1,166 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+}
+
+/* Base Container: Always stays a wide, stable workstation from the start */
+.container {
+    background-color: #1e293b;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    max-width: 960px; 
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+h2 { margin-top: 0; margin-bottom: 2.5rem; color: #38bdf8; text-align: center; }
+
+/* Fixed Side-by-Side Grid Layout */
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .results-grid {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .panel-left {
+        flex: 1;
+        width: 50%;
+    }
+    .panel-right {
+        flex: 1;
+        width: 50%;
+        /* Gives the right panel a subtle border so it doesn't look awkwardly empty at start */
+        border-left: 1px solid #334155; 
+        padding-left: 2rem;
+        min-height: 300px;
+    }
+}
+
+.upload-section {
+    border: 2px dashed #38bdf8;
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    background-color: #0f172a;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.upload-btn {
+    background-color: #38bdf8;
+    color: #0f172a;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+}
+.upload-btn:hover { background-color: #7dd3fc; }
+
+.file-name-text {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    word-break: break-all;
+}
+
+.section-label {
+    text-align: left;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+}
+.heatmap-label { margin-top: 1.5rem; }
+
+#previewContainer img, #heatmapResult {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #334155;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+}
+.btn:hover { background-color: #059669; }
+.hidden { display: none !important; }
+
+/* Progress Bar Components (Kept smooth for loading feedback) */
+.progress-bar-bg {
+    background-color: #334155;
+    width: 100%;
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0.8rem;
+}
+.progress-bar-fill {
+    background: linear-gradient(90deg, #38bdf8, #10b981);
+    width: 0%;
+    height: 100%;
+    transition: width 0.4s ease;
+}
+#progressStatus { margin: 0; font-size: 0.95rem; color: #e2e8f0; text-align: left;}
+
+/* Result Card */
+#resultSection {
+    background-color: #0f172a;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    text-align: left;
+}
+#resultSection h3 { margin-top: 0; color: #38bdf8; font-size: 1.2rem; }
+.result-badge {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #f43f5e;
+    letter-spacing: 0.5px;
+}
+
+/* Academic Footer Styling */
+.project-footer {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 1rem;
+}
+.footer-title {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.footer-dev {
+    color: #475569;
+    font-size: 0.8rem;
+    margin: 0;
+}

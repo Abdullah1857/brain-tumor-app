@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h2>MRI Brain Tumor Detection</h2>
+        
+        <div class="results-grid" id="layoutWrapper">
+            <div class="panel-left">
+                <div class="upload-section">
+                    <input type="file" id="imageUpload" accept="image/*" hidden>
+                    <label for="imageUpload" class="upload-btn">Choose MRI Image</label>
+                    <p id="fileName" class="file-name-text">No file chosen</p>
+                    
+                    <div id="previewContainer" class="hidden">
+                        <p class="section-label">Uploaded Scan:</p>
+                        <img id="imagePreview" src="" alt="MRI Preview">
+                    </div>
+                </div>
+                <button id="predictBtn" class="btn hidden">Analyze Scan</button>
+            </div>
+
+            <div class="panel-right hidden" id="panelRight">
+                <div id="progressContainer" class="hidden">
+                    <p id="progressStatus">Uploading matrix data...</p>
+                    <div class="progress-bar-bg">
+                        <div id="progressBarFill" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+
+                <div id="resultSection" class="hidden">
+                    <h3>Analysis Result:</h3>
+                    <p id="predictionText"></p>
+                    <p id="confidenceText"></p>
+                    <p class="section-label heatmap-label">GradCAM Heatmap Target Overlay:</p>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="project-footer">
+        <p class="footer-title">MRI-based brain tumor detection with classification using image processing</p>
+        <p class="footer-dev">Developed by: Abdullah Al Masud & Mohammad Shah Nur</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
