@@ -39,7 +39,7 @@ imageUpload.addEventListener('change', function() {
     }
 });
 
-// 2. Perform Production API Query & Manage Displays Instantly
+// 2. Perform Local API Query & Manage Displays Instantly
 predictBtn.addEventListener('click', async () => {
     const file = imageUpload.files[0];
     if (!file) return;
@@ -71,8 +71,8 @@ predictBtn.addEventListener('click', async () => {
     }, 1200);
 
     try {
-        // Production relative endpoint URL (Automatically routes through the cloud host base)
-        const response = await fetch('/predict', {
+        // FIXED: Pointing explicitly to your localhost Flask instance
+        const response = await fetch('http://127.0.0.1:5000/predict', {
             method: 'POST',
             body: formData
         });
@@ -90,8 +90,15 @@ predictBtn.addEventListener('click', async () => {
                 predictionText.innerHTML = `Diagnosis: <span class="result-badge">${data.class}</span>`;
                 confidenceText.innerText = `Confidence: ${data.confidence}`;
                 
-                heatmapImg.src = data.heatmap_image;
-                resultSection.appendChild(heatmapImg);
+                // FIXED: Check to overwrite instead of piling multiple image objects
+                let existingHeatmap = document.getElementById('heatmapResult');
+                if (!existingHeatmap) {
+                    heatmapImg.src = data.heatmap_image;
+                    resultSection.appendChild(heatmapImg);
+                } else {
+                    existingHeatmap.src = data.heatmap_image;
+                }
+                
                 resultSection.classList.remove('hidden');
             }, 400);
 
